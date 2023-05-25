@@ -52,7 +52,7 @@
 <div class="container">
   <h3 class="pt-5">Ülések listája</h3>
 
-  <a th:href="@{/new/create}"
+  <a th:href="@{onkules/create}"
        type="button"
        class="btn btn-info">Új ülés hozzá adása</a>
 
@@ -70,7 +70,7 @@
       </tr>
     </thread>
     <tbody>
-    <tr th:each="meeting: ${meeting}">
+    <tr th:each="meeting: ${meetings}">
       <th scope="row"
           th:text="${meeting.id}"></th>
       <td th:date="${meeting.date}"></td>
@@ -78,10 +78,10 @@
       <td th:text="${meeting.ules_jellege}"></td>
       <td th:double="${meeting.time}"></td>
       <td>
-        <a th:href="@{'/new/' + ${meeting.id}}"
+        <a th:href="@{'onkules/' + ${meeting.id}}"
            type="button"
            class="btn btn-warning">Szerkesztés</a>
-        <a th:href="@{'/new/' + ${meeting.id} +  '/delete'}"
+        <a th:href="@{'onkules/' + ${meeting.id} +  '/delete'}"
            type="button"
            class="btn btn-danger">Törlés</a>
       </td>

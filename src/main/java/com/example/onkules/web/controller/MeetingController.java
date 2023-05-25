@@ -2,7 +2,7 @@ package com.example.onkules.web.controller;
 
 import com.example.onkules.data.model.Meeting;
 import com.example.onkules.service.MeetService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +17,9 @@ import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/new/")
-@Slf4j
+@RequestMapping("/onkules")
 public class MeetingController {
-    private  MeetService meetService;
+    private final  MeetService meetService;
 
     @GetMapping("/{id}")
     public String getMeetById(Model model, @PathVariable Long id){
@@ -32,39 +31,39 @@ public class MeetingController {
                 }
         ).orElseGet(
                 () -> {
-                    model.addAttribute("requestUri","new/"+id);
+                    model.addAttribute("requestUri","/"+id);
                     return "notfound";
                 }
         );
     }
     @GetMapping
-    public String getAllCar(Model model) {
+    public String getAllMeeting(Model model) {
         List<Meeting> allMeet = meetService.meetingAlls();
-        model.addAttribute("meeting", allMeet);
+        model.addAttribute("meetings", allMeet);
         return "list";
     }
 
     @GetMapping("/create")
-    public String createCar() {
+    public String createMeeting() {
         return "create";
     }
 
     @PostMapping("/create")
-    public String createCar(Model model, Meeting meeting) {
+    public String createMeeting(Model model, Meeting meeting) {
         Meeting newMeet = meetService.createMeeting(meeting);
         model.addAttribute("meeting", newMeet);
         return "edit";
     }
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String updateCar(Model model, Meeting meeting) {
+    public String updateMeeting(Model model, Meeting meeting) {
         Meeting updatedMeet = meetService.updateMeeting(meeting);
         model.addAttribute("meeting", updatedMeet);
         return "edit";
     }
 
-    @GetMapping("/{ID}/delete")
-    public String deleteCarById(Model model, @PathVariable Long id) {
+    @GetMapping("/{id}/delete")
+    public String deleteMeetingById(Model model, @PathVariable Long id) {
         meetService.deleteMeeting(id);
         List<Meeting> allMeet = meetService.meetingAlls();
         model.addAttribute("meeting", allMeet);

@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col-md-4 mt-5">
             <form method="post"
-                  th:action="@{/new/edit}">
+                  th:action="@{/onkules/update}">
                 <div class="form-group">
                     <label >Ülés modósító adatlap</label>
                 </div>
@@ -61,26 +61,23 @@
                     <label for="id">ID</label>
                     <input type="text"
                            id="id"
-                           name="id"
-                           readonly
-                           class="form-control"
-                           th:value="${meeting.id}"/>
+                           th:name="id"
+                           th:value="${meeting.id}"
+                           class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="date">Dátum</label>
                     <input type="date"
                            id="date"
-                           name="date"
-                           class="form-control"
-                           th:value="${meeting.date}">
+                           th:name="date"
+                           class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="ules_type">Ülés Tipusa</label>
-                    <input type="list"
+                    <input type="text"
                            id="ules_type"
-                           name="ules_type"
+                           th:name="ules_type"
                            class="form-control"
-                           th:value="${meeting.ules_type}"
                            list="ules_type_l"
                     />
                     <datalist id="ules_type_l">
@@ -90,30 +87,29 @@
                 </div>
                 <div class="form-group">
                     <label for="ules_jellege">Ülés Jellege</label>
-                    <input type="list"
+                    <input type="text"
                            id="ules_jellege"
-                           name="ules_jellege"
+                           th:name="ules_jellege"
                            class="form-control"
-                           th:value="${meeting.ules_jellege}"
                            list="ules_jellege_l"
                     />
                     <datalist id="ules_jellege_l">
                         <option value="nyilt" />
                         <option value="zart" />
                     </datalist>
+
                 </div>
                 <div class="form-group">
                     <label for="time">Idő</label>
-                    <input type="text"
+                    <input type="time"
                            id="time"
-                           name="time"
-                           class="form-control"
-                           th:value="${meeting.time}"/>
+                           th:name="time"
+                           class="form-control"/>
                 </div>
                 <button class="btn btn-primary"
                         type="submit">Módosít
                 </button>
-                <a th:href="@{/new}"
+                <a th:href="@{/}"
                    class="btn btn-secondary"
                    type="submit">Vissza a listához</a>
             </form>

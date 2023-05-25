@@ -1,9 +1,13 @@
 package com.example.onkules.data.repository.impl;
 
 import com.example.onkules.data.model.Meeting;
+import com.example.onkules.data.model.ules_jellege;
+import com.example.onkules.data.model.ules_type;
 import com.example.onkules.data.repository.MRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +23,8 @@ public class MettingRepo implements MRepository<Meeting,Long> {
         Long id = STORIGE.size()+1L;
         ules.setId(id);
         STORIGE.put(id,ules);
-        return STORIGE.get(id);
+        System.out.println(STORIGE);
+          return STORIGE.get(id);
     }
     @Override
     public Optional<Meeting> getById(Long id){
