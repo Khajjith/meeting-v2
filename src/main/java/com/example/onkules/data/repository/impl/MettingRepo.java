@@ -41,6 +41,7 @@ public class MettingRepo implements MRepository<Meeting,Long> {
     public Meeting update(Meeting ules){
         Long id = ules.getId();
         STORIGE.put(id,ules);
+        System.out.println(STORIGE);
         return STORIGE.get(id);
     }
     @Override

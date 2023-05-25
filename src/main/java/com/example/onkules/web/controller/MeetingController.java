@@ -2,11 +2,9 @@ package com.example.onkules.web.controller;
 
 import com.example.onkules.data.model.Meeting;
 import com.example.onkules.service.MeetService;
-
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,10 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequiredArgsConstructor
-@RequestMapping("/onkules")
+@RequestMapping("/onkules/")
 public class MeetingController {
-    private final  MeetService meetService;
+    private final MeetService meetService;
+
+    public MeetingController(final MeetService meetService) {
+        this.meetService = meetService;
+    }
 
     @GetMapping("/{id}")
     public String getMeetById(Model model, @PathVariable Long id){
@@ -37,7 +38,7 @@ public class MeetingController {
         );
     }
     @GetMapping
-    public String getAllMeeting(Model model) {
+    public String getAllCar(Model model) {
         List<Meeting> allMeet = meetService.meetingAlls();
         model.addAttribute("meetings", allMeet);
         return "list";
@@ -66,7 +67,7 @@ public class MeetingController {
     public String deleteMeetingById(Model model, @PathVariable Long id) {
         meetService.deleteMeeting(id);
         List<Meeting> allMeet = meetService.meetingAlls();
-        model.addAttribute("meeting", allMeet);
+        model.addAttribute("meetings", allMeet);
         return "list";
     }
 }
