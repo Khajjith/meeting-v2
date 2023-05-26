@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.onkules.service;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -15,7 +15,6 @@ import com.example.onkules.data.model.Meeting;
 import com.example.onkules.data.model.ules_jellege;
 import com.example.onkules.data.model.ules_type;
 import com.example.onkules.data.repository.MRepository;
-import com.example.onkules.service.MeetService;
 import com.example.onkules.service.impl.DefMeetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,7 +41,7 @@ public class DefMeetingServiceTest {
     @BeforeEach
     void serUp() {
         MockitoAnnotations.openMocks(this);
-        meetService = new DefMeetingService((MRepository<Meeting, Long>) mettingRepo);
+        meetService = new DefMeetingService(mettingRepo);
     }
 
     @Test
