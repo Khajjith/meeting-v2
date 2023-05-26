@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/onkules/")
+@RequestMapping("/onkules")
 public class MeetingController {
     private final MeetService meetService;
 
@@ -32,13 +32,13 @@ public class MeetingController {
                 }
         ).orElseGet(
                 () -> {
-                    model.addAttribute("requestUri","/"+id);
+                    model.addAttribute("requestUri","onkules/"+id);
                     return "notfound";
                 }
         );
     }
     @GetMapping
-    public String getAllCar(Model model) {
+    public String getAllMeeting(Model model) {
         List<Meeting> allMeet = meetService.meetingAlls();
         model.addAttribute("meetings", allMeet);
         return "list";

@@ -57,13 +57,7 @@
                 <div class="form-group">
                     <label>Ülés létrehozása</label>
                 </div>
-                <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text"
-                           id="id"
-                           th:name="id"
-                           class="form-control"/>
-                </div>
+
                 <div class="form-group">
                     <label for="date">Dátum</label>
                     <input type="date"
@@ -109,7 +103,7 @@
                 <button class="btn btn-primary pt-2"
                         type="submit">Létrehoz
                 </button>
-                <a th:href="@{/}"
+                <a th:href="@{/onkules}"
                    class="btn btn-secondary pt-2"
                    type="submit">Vissza a listához</a>
             </form>

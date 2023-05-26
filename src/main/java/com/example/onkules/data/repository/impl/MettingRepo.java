@@ -23,6 +23,7 @@ public class MettingRepo implements MRepository<Meeting,Long> {
         Long id = STORIGE.size()+1L;
         ules.setId(id);
         STORIGE.put(id,ules);
+
         System.out.println(STORIGE);
           return STORIGE.get(id);
     }
@@ -34,6 +35,8 @@ public class MettingRepo implements MRepository<Meeting,Long> {
 
     @Override
     public List<Meeting> getAll() {
+        System.out.println("getálllllllllllllllllllllllllllllllllllllllllllllll");
+        System.out.println(STORIGE);
         return STORIGE.values().stream().toList();
     }
 

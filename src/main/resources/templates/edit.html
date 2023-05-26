@@ -60,7 +60,7 @@
                     <label for="id">ID</label>
                     <input type="text"
                            id="id"
-                           th:name="id"
+                          name="id"
                            th:value="${meeting.id}"
                            class="form-control"/>
                 </div>
@@ -68,15 +68,17 @@
                     <label for="date">Dátum</label>
                     <input type="date"
                            id="date"
-                           th:name="date"
+                           name="date"
+                           th:value="${meeting.date}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="ules_type">Ülés Tipusa</label>
                     <input type="text"
                            id="ules_type"
-                           th:name="ules_type"
+                          name="ules_type"
                            class="form-control"
+                           th:value="${meeting.ules_type}"
                            list="ules_type_l"
                     />
                     <datalist id="ules_type_l">
@@ -88,8 +90,9 @@
                     <label for="ules_jellege">Ülés Jellege</label>
                     <input type="text"
                            id="ules_jellege"
-                           th:name="ules_jellege"
+                          name="ules_jellege"
                            class="form-control"
+                           th:value="${meeting.ules_jellege}"
                            list="ules_jellege_l"
                     />
                     <datalist id="ules_jellege_l">
@@ -102,13 +105,14 @@
                     <label for="time">Idő</label>
                     <input type="time"
                            id="time"
-                           th:name="time"
+                           name="time"
+                           th:value="${meeting.time}"
                            class="form-control"/>
                 </div>
                 <button class="btn btn-primary"
                         type="submit">Módosít
                 </button>
-                <a th:href="@{/}"
+                <a th:href="@{/onkules}"
                    class="btn btn-secondary"
                    type="submit">Vissza a listához</a>
             </form>

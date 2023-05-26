@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -66,7 +65,7 @@
         <tr th:each="meeting: ${meetings}">
             <th scope="row"
                 th:text="${meeting.id}"></th>
-            <td th:date="${meeting.date}"></td>
+            <td th:text="${meeting.date}"></td>
             <td th:text="${meeting.ules_type}"></td>
             <td th:text="${meeting.ules_jellege}"></td>
             <td th:text="${meeting.time}"></td>
