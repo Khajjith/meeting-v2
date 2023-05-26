@@ -73,12 +73,6 @@ public class Meeting {
 
     @Override
     public String toString() {
-        return "Meeting{" +
-                "id=" + id +
-                ", date=" + date +
-                ", ules_type=" + ules_type +
-                ", ules_jellege=" + ules_jellege +
-                ", time=" + time +
-                '}';
+        return "Meeting{" + "id=" + id + ", date=" + date + ", ules_type=" + ules_type + ", ules_jellege=" + ules_jellege + ", time=" + time + '}';
     }
 }
