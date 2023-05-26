@@ -134,6 +134,7 @@
 			<id>github</id>
 			<name>GitHub Packages</name>
 			<url>https://maven.pkg.github.com/Khajjith/meeting-v2</url>
+			<!-- v7 -->
 		</repository>
 
 	</distributionManagement>
